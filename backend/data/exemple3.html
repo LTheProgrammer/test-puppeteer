@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice #INV-2025-003</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #ddd;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 20px;
+        }
+
+        .company-info h1 {
+            color: #dc3545;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .company-info p {
+            margin: 2px 0;
+            font-size: 14px;
+        }
+
+        .invoice-meta {
+            text-align: right;
+        }
+
+        .invoice-meta h2 {
+            font-size: 32px;
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .invoice-meta p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .billing-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .billing-info {
+            width: 48%;
+        }
+
+        .billing-info h3 {
+            color: #dc3545;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .billing-info p {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .items-table th {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .items-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        .items-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .items-table .qty,
+        .items-table .rate,
+        .items-table .amount {
+            text-align: right;
+        }
+
+        .totals-section {
+            margin-left: auto;
+            width: 300px;
+        }
+
+        .totals-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .totals-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .totals-table .label {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .totals-table .amount {
+            text-align: right;
+            width: 100px;
+        }
+
+        .total-row {
+            background-color: #dc3545;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .notes-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .notes-section h3 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .notes-section p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .payment-terms {
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .payment-terms h3 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        .payment-terms ul {
+            margin-left: 20px;
+        }
+
+        .payment-terms li {
+            margin: 6px 0;
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .invoice-container {
+                border: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <div class="company-info">
+                <h1>RedRock IT Services</h1>
+                <p>456 Technology Drive</p>
+                <p>Austin, TX 78701</p>
+                <p>Phone: (512) 555-9876</p>
+                <p>Email: invoicing@redrock-it.com</p>
+                <p>Tax ID: 45-6789012</p>
+            </div>
+            <div class="invoice-meta">
+                <h2>INVOICE</h2>
+                <p><strong>Invoice #:</strong> INV-2025-003</p>
+                <p><strong>Date:</strong> June 7, 2025</p>
+                <p><strong>Due Date:</strong> July 22, 2025</p>
+                <p><strong>Terms:</strong> Net 45</p>
+            </div>
+        </div>
+
+        <div class="billing-section">
+            <div class="billing-info">
+                <h3>Bill To:</h3>
+                <p><strong>MegaCorp Industries</strong></p>
+                <p>1000 Corporate Plaza</p>
+                <p>Floor 25, Suite 2500</p>
+                <p>Dallas, TX 75201</p>
+                <p>Attn: IT Department</p>
+                <p>it-billing@megacorp.com</p>
+            </div>
+            <div class="billing-info">
+                <h3>Service Period:</h3>
+                <p><strong>Period:</strong> May 1 - May 31, 2025</p>
+                <p><strong>Contract:</strong> MSA-2025-001</p>
+                <p><strong>Project Manager:</strong> Mike Davis</p>
+                <p><strong>Account Rep:</strong> Lisa Chen</p>
+            </div>
+        </div>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th class="qty">Qty</th>
+                    <th class="rate">Rate</th>
+                    <th class="amount">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Network Infrastructure Monitoring</td>
+                    <td class="qty">744</td>
+                    <td class="rate">$2.50</td>
+                    <td class="amount">$1,860.00</td>
+                </tr>
+                <tr>
+                    <td>Server Maintenance - Windows 2022</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$185.00</td>
+                    <td class="amount">$2,220.00</td>
+                </tr>
+                <tr>
+                    <td>Server Maintenance - Linux Ubuntu</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$165.00</td>
+                    <td class="amount">$1,320.00</td>
+                </tr>
+                <tr>
+                    <td>Database Administration - SQL Server</td>
+                    <td class="qty">16</td>
+                    <td class="rate">$195.00</td>
+                    <td class="amount">$3,120.00</td>
+                </tr>
+                <tr>
+                    <td>Database Administration - MySQL</td>
+                    <td class="qty">10</td>
+                    <td class="rate">$175.00</td>
+                    <td class="amount">$1,750.00</td>
+                </tr>
+                <tr>
+                    <td>Backup Verification and Testing</td>
+                    <td class="qty">20</td>
+                    <td class="rate">$125.00</td>
+                    <td class="amount">$2,500.00</td>
+                </tr>
+                <tr>
+                    <td>Security Patch Management</td>
+                    <td class="qty">24</td>
+                    <td class="rate">$155.00</td>
+                    <td class="amount">$3,720.00</td>
+                </tr>
+                <tr>
+                    <td>Firewall Configuration Updates</td>
+                    <td class="qty">6</td>
+                    <td class="rate">$225.00</td>
+                    <td class="amount">$1,350.00</td>
+                </tr>
+                <tr>
+                    <td>VPN Setup and Maintenance</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$185.00</td>
+                    <td class="amount">$1,480.00</td>
+                </tr>
+                <tr>
+                    <td>Email Server Administration</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$165.00</td>
+                    <td class="amount">$1,980.00</td>
+                </tr>
+                <tr>
+                    <td>Web Server Configuration</td>
+                    <td class="qty">14</td>
+                    <td class="rate">$175.00</td>
+                    <td class="amount">$2,450.00</td>
+                </tr>
+                <tr>
+                    <td>Load Balancer Management</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$205.00</td>
+                    <td class="amount">$1,640.00</td>
+                </tr>
+                <tr>
+                    <td>DNS Management and Updates</td>
+                    <td class="qty">4</td>
+                    <td class="rate">$145.00</td>
+                    <td class="amount">$580.00</td>
+                </tr>
+                <tr>
+                    <td>SSL Certificate Renewal</td>
+                    <td class="qty">15</td>
+                    <td class="rate">$85.00</td>
+                    <td class="amount">$1,275.00</td>
+                </tr>
+                <tr>
+                    <td>Active Directory Management</td>
+                    <td class="qty">18</td>
+                    <td class="rate">$165.00</td>
+                    <td class="amount">$2,970.00</td>
+                </tr>
+                <tr>
+                    <td>Group Policy Updates</td>
+                    <td class="qty">10</td>
+                    <td class="rate">$135.00</td>
+                    <td class="amount">$1,350.00</td>
+                </tr>
+                <tr>
+                    <td>User Account Management</td>
+                    <td class="qty">25</td>
+                    <td class="rate">$95.00</td>
+                    <td class="amount">$2,375.00</td>
+                </tr>
+                <tr>
+                    <td>Software License Audit</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$155.00</td>
+                    <td class="amount">$1,860.00</td>
+                </tr>
+                <tr>
+                    <td>Performance Monitoring Setup</td>
+                    <td class="qty">16</td>
+                    <td class="rate">$185.00</td>
+                    <td class="amount">$2,960.00</td>
+                </tr>
+                <tr>
+                    <td>Log Analysis and Reporting</td>
+                    <td class="qty">22</td>
+                    <td class="rate">$145.00</td>
+                    <td class="amount">$3,190.00</td>
+                </tr>
+                <tr>
+                    <td>Incident Response Management</td>
+                    <td class="qty">14</td>
+                    <td class="rate">$215.00</td>
+                    <td class="amount">$3,010.00</td>
+                </tr>
+                <tr>
+                    <td>Help Desk Support - Level 1</td>
+                    <td class="qty">120</td>
+                    <td class="rate">$65.00</td>
+                    <td class="amount">$7,800.00</td>
+                </tr>
+                <tr>
+                    <td>Help Desk Support - Level 2</td>
+                    <td class="qty">45</td>
+                    <td class="rate">$95.00</td>
+                    <td class="amount">$4,275.00</td>
+                </tr>
+                <tr>
+                    <td>Help Desk Support - Level 3</td>
+                    <td class="qty">18</td>
+                    <td class="rate">$135.00</td>
+                    <td class="amount">$2,430.00</td>
+                </tr>
+                <tr>
+                    <td>Remote Desktop Support</td>
+                    <td class="qty">35</td>
+                    <td class="rate">$85.00</td>
+                    <td class="amount">$2,975.00</td>
+                </tr>
+                <tr>
+                    <td>Hardware Troubleshooting</td>
+                    <td class="qty">28</td>
+                    <td class="rate">$125.00</td>
+                    <td class="amount">$3,500.00</td>
+                </tr>
+                <tr>
+                    <td>Software Installation Support</td>
+                    <td class="qty">32</td>
+                    <td class="rate">$105.00</td>
+                    <td class="amount">$3,360.00</td>
+                </tr>
+                <tr>
+                    <td>Printer and Scanner Support</td>
+                    <td class="qty">15</td>
+                    <td class="rate">$75.00</td>
+                    <td class="amount">$1,125.00</td>
+                </tr>
+                <tr>
+                    <td>Mobile Device Management</td>
+                    <td class="qty">22</td>
+                    <td class="rate">$115.00</td>
+                    <td class="amount">$2,530.00</td>
+                </tr>
+                <tr>
+                    <td>Cloud Services Management - Azure</td>
+                    <td class="qty">20</td>
+                    <td class="rate">$195.00</td>
+                    <td class="amount">$3,900.00</td>
+                </tr>
+                <tr>
+                    <td>Cloud Services Management - AWS</td>
+                    <td class="qty">18</td>
+                    <td class="rate">$205.00</td>
+                    <td class="amount">$3,690.00</td>
+                </tr>
+                <tr>
+                    <td>Data Migration Services</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$225.00</td>
+                    <td class="amount">$2,700.00</td>
+                </tr>
+                <tr>
+                    <td>Disaster Recovery Testing</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$285.00</td>
+                    <td class="amount">$2,280.00</td>
+                </tr>
+                <tr>
+                    <td>Compliance Reporting</td>
+                    <td class="qty">16</td>
+                    <td class="rate">$175.00</td>
+                    <td class="amount">$2,800.00</td>
+                </tr>
+                <tr>
+                    <td>Security Vulnerability Assessment</td>
+                    <td class="qty">24</td>
+                    <td class="rate">$195.00</td>
+                    <td class="amount">$4,680.00</td>
+                </tr>
+                <tr>
+                    <td>Penetration Testing</td>
+                    <td class="qty">16</td>
+                    <td class="rate">$275.00</td>
+                    <td class="amount">$4,400.00</td>
+                </tr>
+                <tr>
+                    <td>Security Training Sessions</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$165.00</td>
+                    <td class="amount">$1,980.00</td>
+                </tr>
+                <tr>
+                    <td>Antivirus Management</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$125.00</td>
+                    <td class="amount">$1,000.00</td>
+                </tr>
+                <tr>
+                    <td>Network Cable Installation</td>
+                    <td class="qty">40</td>
+                    <td class="rate">$95.00</td>
+                    <td class="amount">$3,800.00</td>
+                </tr>
+                <tr>
+                    <td>WiFi Network Optimization</td>
+                    <td class="qty">14</td>
+                    <td class="rate">$155.00</td>
+                    <td class="amount">$2,170.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="totals-section">
+            <table class="totals-table">
+                <tr>
+                    <td class="label">Subtotal:</td>
+                    <td class="amount">$108,890.00</td>
+                </tr>
+                <tr>
+                    <td class="label">Volume Discount (3%):</td>
+                    <td class="amount">-$3,266.70</td>
+                </tr>
+                <tr>
+                    <td class="label">Net Amount:</td>
+                    <td class="amount">$105,623.30</td>
+                </tr>
+                <tr>
+                    <td class="label">Tax (8.25%):</td>
+                    <td class="amount">$8,713.92</td>
+                </tr>
+                <tr class="total-row">
+                    <td class="label">Total Due:</td>
+                    <td class="amount">$114,337.22</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="notes-section">
+            <h3>Service Summary</h3>
+            <p>Complete IT support and maintenance services provided for MegaCorp Industries during May 2025. This
+                comprehensive package included network monitoring,

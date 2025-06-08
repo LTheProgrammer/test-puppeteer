@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice #INV-2025-001</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #ddd;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 20px;
+        }
+
+        .company-info h1 {
+            color: #007acc;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .company-info p {
+            margin: 2px 0;
+            font-size: 14px;
+        }
+
+        .invoice-meta {
+            text-align: right;
+        }
+
+        .invoice-meta h2 {
+            font-size: 32px;
+            color: #007acc;
+            margin-bottom: 10px;
+        }
+
+        .invoice-meta p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .billing-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .billing-info {
+            width: 48%;
+        }
+
+        .billing-info h3 {
+            color: #007acc;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .billing-info p {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .items-table th {
+            background-color: #007acc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .items-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .items-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .items-table .qty,
+        .items-table .rate,
+        .items-table .amount {
+            text-align: right;
+        }
+
+        .totals-section {
+            margin-left: auto;
+            width: 300px;
+        }
+
+        .totals-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .totals-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .totals-table .label {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .totals-table .amount {
+            text-align: right;
+            width: 100px;
+        }
+
+        .total-row {
+            background-color: #007acc;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .notes-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .notes-section h3 {
+            color: #007acc;
+            margin-bottom: 10px;
+        }
+
+        .notes-section p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .payment-terms {
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #007acc;
+        }
+
+        .payment-terms h3 {
+            color: #007acc;
+            margin-bottom: 15px;
+        }
+
+        .payment-terms ul {
+            margin-left: 20px;
+        }
+
+        .payment-terms li {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .invoice-container {
+                border: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <div class="company-info">
+                <h1>TechCorp Solutions</h1>
+                <p>123 Business Avenue</p>
+                <p>New York, NY 10001</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: billing@techcorp.com</p>
+                <p>Tax ID: 12-3456789</p>
+            </div>
+            <div class="invoice-meta">
+                <h2>INVOICE</h2>
+                <p><strong>Invoice #:</strong> INV-2025-001</p>
+                <p><strong>Date:</strong> June 7, 2025</p>
+                <p><strong>Due Date:</strong> July 7, 2025</p>
+                <p><strong>Terms:</strong> Net 30</p>
+            </div>
+        </div>
+
+        <div class="billing-section">
+            <div class="billing-info">
+                <h3>Bill To:</h3>
+                <p><strong>Acme Corporation</strong></p>
+                <p>456 Commerce Street</p>
+                <p>Suite 200</p>
+                <p>Los Angeles, CA 90210</p>
+                <p>Attn: John Smith, CFO</p>
+                <p>john.smith@acme.com</p>
+            </div>
+            <div class="billing-info">
+                <h3>Ship To:</h3>
+                <p><strong>Acme Corporation</strong></p>
+                <p>789 Industrial Blvd</p>
+                <p>Warehouse B</p>
+                <p>Los Angeles, CA 90211</p>
+                <p>Attn: Receiving Department</p>
+            </div>
+        </div>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th class="qty">Qty</th>
+                    <th class="rate">Rate</th>
+                    <th class="amount">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Website Development - Custom E-commerce Platform</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$12,500.00</td>
+                    <td class="amount">$12,500.00</td>
+                </tr>
+                <tr>
+                    <td>Database Design and Implementation</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$3,200.00</td>
+                    <td class="amount">$3,200.00</td>
+                </tr>
+                <tr>
+                    <td>API Integration Services</td>
+                    <td class="qty">8</td>
+                    <td class="rate">$150.00</td>
+                    <td class="amount">$1,200.00</td>
+                </tr>
+                <tr>
+                    <td>Mobile App Development - iOS</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$8,500.00</td>
+                    <td class="amount">$8,500.00</td>
+                </tr>
+                <tr>
+                    <td>Mobile App Development - Android</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$8,500.00</td>
+                    <td class="amount">$8,500.00</td>
+                </tr>
+                <tr>
+                    <td>Quality Assurance Testing</td>
+                    <td class="qty">40</td>
+                    <td class="rate">$75.00</td>
+                    <td class="amount">$3,000.00</td>
+                </tr>
+                <tr>
+                    <td>Project Management</td>
+                    <td class="qty">20</td>
+                    <td class="rate">$125.00</td>
+                    <td class="amount">$2,500.00</td>
+                </tr>
+                <tr>
+                    <td>SSL Certificate Setup</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$150.00</td>
+                    <td class="amount">$150.00</td>
+                </tr>
+                <tr>
+                    <td>Server Configuration and Deployment</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$850.00</td>
+                    <td class="amount">$850.00</td>
+                </tr>
+                <tr>
+                    <td>User Training Sessions</td>
+                    <td class="qty">4</td>
+                    <td class="rate">$200.00</td>
+                    <td class="amount">$800.00</td>
+                </tr>
+                <tr>
+                    <td>Documentation and User Manual</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$750.00</td>
+                    <td class="amount">$750.00</td>
+                </tr>
+                <tr>
+                    <td>3-Month Technical Support Package</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$1,500.00</td>
+                    <td class="amount">$1,500.00</td>
+                </tr>
+                <tr>
+                    <td>Performance Optimization Services</td>
+                    <td class="qty">12</td>
+                    <td class="rate">$180.00</td>
+                    <td class="amount">$2,160.00</td>
+                </tr>
+                <tr>
+                    <td>Security Audit and Implementation</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$2,250.00</td>
+                    <td class="amount">$2,250.00</td>
+                </tr>
+                <tr>
+                    <td>Backup System Setup</td>
+                    <td class="qty">1</td>
+                    <td class="rate">$650.00</td>
+                    <td class="amount">$650.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="totals-section">
+            <table class="totals-table">
+                <tr>
+                    <td class="label">Subtotal:</td>
+                    <td class="amount">$48,510.00</td>
+                </tr>
+                <tr>
+                    <td class="label">Discount (5%):</td>
+                    <td class="amount">-$2,425.50</td>
+                </tr>
+                <tr>
+                    <td class="label">Net Amount:</td>
+                    <td class="amount">$46,084.50</td>
+                </tr>
+                <tr>
+                    <td class="label">Tax (8.25%):</td>
+                    <td class="amount">$3,801.97</td>
+                </tr>
+                <tr class="total-row">
+                    <td class="label">Total Due:</td>
+                    <td class="amount">$49,886.47</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="notes-section">
+            <h3>Notes & Instructions</h3>
+            <p>Thank you for choosing TechCorp Solutions for your development needs. This invoice covers the complete
+                development, testing, and deployment of your custom e-commerce platform and mobile applications. All
+                deliverables have been completed according to the project specifications outlined in our agreement dated
+                March 15, 2025.</p>
+        </div>
+
+        <div class="payment-terms">
+            <h3>Payment Terms & Conditions</h3>
+            <ul>
+                <li>Payment is due within 30 days of invoice date</li>
+                <li>Late payments may incur a 1.5% monthly service charge</li>
+                <li>Accepted payment methods: ACH transfer, wire transfer, or company check</li>
+                <li>For ACH transfers, use account #123456789 (Routing: 987654321)</li>
+                <li>Wire transfer details available upon request</li>
+                <li>Please include invoice number on all payments</li>
+                <li>Questions about this invoice? Contact our billing department at billing@techcorp.com</li>
+                <li>Technical support inquiries should be directed to support@techcorp.com</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>TechCorp Solutions LLC • 123 Business Avenue, New York, NY 10001 • Phone: (555) 123-4567 •
+                www.techcorp.com</p>
+            <p>This invoice was generated electronically and is valid without signature.</p>
+        </div>
+    </div>
+</body>
+
+</html>
