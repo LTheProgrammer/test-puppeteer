@@ -9,5 +9,5 @@ I wanted to test Puppeteer and see how it would behave/perform at generating inv
 -open your browser and go to localhost:5173  
 -click the buttons, the pdf will be generated and downloaded once ready  
 
-** If you have issue with the node module delete them, upgrade your node.js version, restart the computer and restart the instll-all step.  
+** If you have issue with the node module delete them, upgrade your node.js version, restart the computer and restart the install-all step.  
 Node.js version used : v22.16
